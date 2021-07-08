@@ -19,3 +19,28 @@ A conexão fornece uma interface para configurar a conexão do seu aplicativo co
 > 2.3 Por último, chame o método cursor() na conexão para recuperar o cursor.
 
 O cursor fornece uma interface para interagir com o servidor, como executar consultas SQL e gerenciar transações.
+
+```
+#!/usr/bin/python
+
+# Module Imports
+import mariadb
+import sys
+
+# Connect to MariaDB Platform
+try:
+    conn = mariadb.connect(
+        user="root",
+        password="root",
+        host="localhost",
+        port=3306,
+        database="agenda"
+
+    )
+except mariadb.Error as e:
+    print(f"Error connecting to MariaDB Platform: {e}")
+    sys.exit(1)
+
+# Get Cursor
+cur = conn.cursor()
+```
